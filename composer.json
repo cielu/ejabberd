@@ -1,9 +1,8 @@
 {
     "name": "cielu/easy-ejabberd",
     "type": "library",
-    "description": "php library for Ejabberd REST API",
+    "description": "PHP library for Ejabberd REST API",
     "keywords": ["Ejabberd"],
-    "homepage": "https://github.com/cielu/ejabberd-php-api",
     "license": "MIT",
     "authors": [
         {
@@ -16,8 +15,13 @@
         "guzzlehttp/guzzle": "^6.2"
     },
     "autoload": {
-    "psr-0": {
-        "Ejabberd": "src"
+        "psr-4": {
+            "Cielu\\Ejabberd\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cielu\\Ejabberd\\Tests\\": "tests/"
         }
     }
 }
