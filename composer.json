@@ -1,0 +1,23 @@
+{
+    "name": "cielu/easy-ejabberd",
+    "type": "library",
+    "description": "php library for Ejabberd REST API",
+    "keywords": ["Ejabberd"],
+    "homepage": "https://github.com/cielu/ejabberd-php-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cielu",
+            "email": "ciel7yu@gmail.com"
+        }
+    ],
+    "require": {
+    "php": ">=5.6.0",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+    "psr-0": {
+        "Ejabberd": "src"
+        }
+    }
+}
