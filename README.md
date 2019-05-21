@@ -1,4 +1,4 @@
-# easy-ejabberd
+# php ejabberd
 
 - PHP Library for the ejabberd REST API
 
