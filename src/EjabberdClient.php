@@ -4,6 +4,7 @@ namespace Cielu\Ejabberd;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 class EjabberdClient {
 
@@ -21,7 +22,7 @@ class EjabberdClient {
         preg_match('/^(http|https):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_-]*)+):?(\d+)?\/?/i', $config['baseUri'], $domains);
         // empty domains
         if(empty($domains)){
-            throw new Exception('Invalid baseUri .') ;
+            return ['status' => 'error', 'message' => 'Invalid baseUri .'] ;
         }
         $this->host = $domains[2] ;
         // new GuzzleHttp client
@@ -46,10 +47,10 @@ class EjabberdClient {
             $response = $this->client->request('POST',$uri,[
                 'json' => $json
             ])->getBody();
-        } catch (\GuzzleHttp\Exception\ClientException $exception) {
-            return $exception->getResponse()->getBody()->getContents();
+        } catch (ClientException $exception) {
+            $response = $exception->getResponse()->getBody()->getContents();
         }
-        return $response;
+        return json_decode($response, true);
     }
 
     /**
@@ -91,10 +92,15 @@ class EjabberdClient {
     }
     # ==============
 
-    public function register($username,$password)
+    /**
+     * @param $username
+     * @param $password
+     * @return mixed
+     */
+    public function register($username, $password)
     {
-        $this->httpPost('/api/register',[
-            "user" => $username ,
+        return $this->httpPost('/api/register',[
+            "user" => $username,
             "password" => $password ,
             "host" => $this->host,
         ]);
