@@ -2,7 +2,6 @@
 
 namespace Cielu\Ejabberd;
 
-use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 
