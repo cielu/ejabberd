@@ -29,7 +29,7 @@ class Ejabberd {
             'base_uri' => $config['baseUri'],
             'verify' => isset($config['verify']) ? $config['verify'] : false,
             'headers' => [
-                'Authorization' => "Bearer {$config['authorization']}",
+                'Authorization' => $config['authorization'],
                 'X-Admin' => true
             ]
         ]);
@@ -42,9 +42,14 @@ class Ejabberd {
      */
     public function httpPost($uri, array $json = [])
     {
-        return $this->client->request('POST',$uri,[
-            'json' => $json
-        ])->getBody();
+        try{
+            $response = $this->client->request('POST',$uri,[
+                'json' => $json
+            ])->getBody();
+        } catch (\GuzzleHttp\Exception\ClientException $exception) {
+            return $exception->getResponse()->getBody()->getContents();
+        }
+        return $response;
     }
 
     /**
@@ -89,7 +94,7 @@ class Ejabberd {
     public function register($username,$password)
     {
         $this->httpPost('/api/register',[
-            "user" => $username,
+            "user" => $username ,
             "password" => $password ,
             "host" => $this->host,
         ]);

@@ -1,5 +1,5 @@
 {
-    "name": "cielu/easy-ejabberd",
+    "name": "cielu/ejabberd",
     "type": "library",
     "description": "PHP library for Ejabberd REST API",
     "keywords": ["Ejabberd"],
