@@ -4,7 +4,7 @@
 
 ### Installation
 ```bash
-composer require cielu/easy-ejabberd
+composer require cielu/ejabberd
 ```
 
 ### Usage
