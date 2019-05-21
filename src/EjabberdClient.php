@@ -1,11 +1,11 @@
 <?php
 
-namespace Cielu;
+namespace Cielu\Ejabberd;
 
 use Exception;
 use GuzzleHttp\Client;
 
-class Ejabberd {
+class EjabberdClient {
 
     protected $client ;
 

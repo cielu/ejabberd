@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Cielu\\": "src"
+            "Cielu\\Ejabberd\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Cielu\\Tests\\": "tests"
+            "Cielu\\Ejabberd\\Tests\\": "tests"
         }
     }
 }
