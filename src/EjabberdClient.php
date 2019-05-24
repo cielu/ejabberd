@@ -2032,7 +2032,7 @@ class EjabberdClient {
      * @param $nodes
      * @return mixed  The list of nodes that has subscribed
      */
-    public function subscribeRoom(string $user, string $nick, string $roomName, $nodes)
+    public function subscribeRoom(string $user, string $nick, string $roomName, $nodes = "urn:xmpp:mucsub:nodes:messages,urn:xmpp:mucsub:nodes:affiliations")
     {
         return $this->httpPost('/api/subscribe_room',[
             "user" => $user, // "tom@localhost/dummy"
