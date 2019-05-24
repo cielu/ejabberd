@@ -11,9 +11,12 @@ composer require cielu/ejabberd
 ```php
 <?php
 
-use Cielu\Ejabberd;
+use Cielu\Ejabberd\EjabberdClient;
 
-$ejabberd = new Ejabberd();
+$ejabberd = new EjabberdClient([
+   'baseUri' => 'http://localhost:5281' , // must use http or https
+   'authorization' => "Bearer vmsTwBYFMJpRUOD8YvnyCdafEUxxxxx"
+]);
 
 
 ```
@@ -22,11 +25,8 @@ $ejabberd = new Ejabberd();
 ```php
 
 // Register User
-$user = 'test@example.com';
-$ejabberd->register($user,$server,$password);
+$res = $ejabberd->register('ciel','123456');
 
-// Ban Account
-$user = 'john@doe.com';
-$reason = 'Acting too smart';
-$ejabberd->banAccount($user, $reason);
+// create room
+$res = $ejabberd->createRoom('room name');
 ```
