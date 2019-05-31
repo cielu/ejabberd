@@ -64,13 +64,13 @@ class EjabberdClient {
      * @param string $localuser User name
      * @param string $user
      * @param string|null $nickname
-     * @param $group group like: 'family','friend','job','etc'
+     * @param string $group group like: 'family','friend','job','etc'
      * @param string $subs none | from | to | both
      * @param $localserver Server name
      * @param $server Contact server name
      * @return mixed Status code (0 on success, 1 otherwise)
      */
-    public function addRosterItem(string $localuser,string $user,string $nickname = null, $group = null, $subs = 'both',$localserver = null,$server = null)
+    public function addRosterItem(string $localuser,string $user,string $nickname = '', $group = '', $subs = 'both',$localserver = null,$server = null)
     {
         return $this->httpPost('/api/add_rosteritem',[
             'localuser' => $localuser ,
