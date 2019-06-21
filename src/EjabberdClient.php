@@ -1577,14 +1577,14 @@ class EjabberdClient {
      * @param string $body
      * @return mixed Status code (0 on success, 1 otherwise)
      */
-    public function sendMessage(string $type, string $from, string $to,string $subject,string $body)
+    public function sendMessage(string $from, string $to,string $subject,string $body,string $type = 'chat')
     {
         return $this->httpPost('/api/send_message',[
-            "type" => $type,
             "from" => $from,
             "to" => $to,
             "subject" => $subject,
-            "body" => $body
+            "body" => $body,
+            "type" => $type,
         ]);
     }
 
