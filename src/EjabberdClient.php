@@ -1761,7 +1761,7 @@ class EjabberdClient {
         return $this->httpPost('/api/set_vcard2',[
             "user" => $localUser,
             "name" => $name,
-            "name" => $subName,
+            "subname" => $subName,
             "content" => $content,
             "host" => $host ?? $this->host
         ]);
