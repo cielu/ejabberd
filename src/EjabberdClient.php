@@ -785,7 +785,7 @@ class EjabberdClient {
      */
     public function getVcard2(string $user,string $nickname,string $subname, $host = null)
     {
-        return $this->httpPost('/api/get_vcard',[
+        return $this->httpPost('/api/get_vcard2',[
             "user" => $user,
             "name" => $nickname,
             "subname" => $subname,
